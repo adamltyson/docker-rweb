@@ -2,13 +2,12 @@ version: '3.5'
 
 services:
   apache:
-    image: 'bitnami/apache:latest'
+    image: 'apacheroot'
     user: "0:0"
     ports:
       - '80:80'
       - '443:443'
-    networks:
-      - sp-net
+
     volumes:
       - ./config/apache/httpd.conf:/opt/bitnami/apache/conf/httpd.conf:ro
       - ./config/apache/r-ssl.conf:/vhosts/my_vhost.conf:ro
@@ -18,21 +17,13 @@ services:
       - APACHE_HTTPS_PORT_NUMBER=443
 
   shiny:
-    image: 'rocker/shiny'
-    networks:
-      - sp-net
+    image: 'ki67'
+    volumes:
+        - /home/scientificcomputing/shiny-test:/srv/shiny-server
 
   rstudio:
     image: 'rocker/rstudio'
-    networks:
-      - sp-net
     environment:
       - PASSWORD=rinproduction
       - DISABLE_AUTH=false
       # - ADD=shiny
-
-  
-networks:
-  sp-net:
-    name: rweb_sp-net
-  
