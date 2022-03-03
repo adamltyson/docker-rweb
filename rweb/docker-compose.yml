@@ -23,10 +23,3 @@ services:
     image: 'ki67'
     volumes:
         - /home/scientificcomputing/shiny-test:/srv/shiny-server
-
-  rstudio:
-    image: 'rocker/rstudio'
-    environment:
-      - PASSWORD=rinproduction
-      - DISABLE_AUTH=false
-      # - ADD=shiny
