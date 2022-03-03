@@ -18,6 +18,6 @@ services:
       - APACHE_HTTPS_PORT_NUMBER=443
 
   shiny:
-    image: 'ki67'
+    image: 'ki76-shiny'
     volumes:
         - /home/scientificcomputing/shiny-test:/srv/shiny-server
