@@ -12,6 +12,9 @@ services:
       - ./config/apache/httpd.conf:/opt/bitnami/apache/conf/httpd.conf:ro
       - ./config/apache/r-ssl.conf:/vhosts/my_vhost.conf:ro
       - ./config/ssl:/etc/ssl:ro
+      - /home/scientificcomputing/src:/app
+      - /home/scientificcomputing/apache_certs:/certs
+
     environment:
       - APACHE_HTTP_PORT_NUMBER=80
       - APACHE_HTTPS_PORT_NUMBER=443
